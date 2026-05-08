@@ -1,0 +1,223 @@
+:root {
+    --bg-color: #f4f4f0; /* Warm white */
+    --text-color: #222222; /* Grayish black */
+    --border-color: #222222;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'IBM Plex Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.5;
+    padding: 1rem;
+    min-height: 100vh;
+}
+
+/* Brutalist layout using visible grid borders */
+.grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 3px solid var(--border-color);
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: var(--bg-color);
+    /* Gestalt: strong alignment creates a unified whole */
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.title {
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.bio p {
+    font-size: 1rem;
+    max-width: 600px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    border-bottom: 3px solid var(--border-color);
+    padding: 1.5rem;
+}
+
+/* Header Section */
+.section-header {
+    border-bottom: 3px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.header-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.contact-block {
+    border-top: 3px solid var(--border-color);
+    padding: 1.5rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    transition: all 0.3s ease;
+}
+
+.contact-link {
+    color: var(--bg-color);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+    word-break: break-all;
+}
+
+.contact-block:hover {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.contact-block:hover .contact-link {
+    color: var(--text-color);
+}
+
+/* Work Section */
+.section-work {
+    border-bottom: 3px solid var(--border-color);
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    border-bottom: 2px solid var(--border-color);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+}
+
+.project-item:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.project-number {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1.5rem 0.5rem 1.5rem 1rem;
+    border-right: 2px solid var(--border-color);
+    display: flex;
+    align-items: flex-start;
+    transition: border-color 0.2s ease;
+}
+
+.project-item:hover .project-number {
+    border-right-color: var(--bg-color);
+}
+
+.project-details {
+    padding: 1.5rem;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-desc {
+    max-width: 700px;
+    font-size: 0.95rem;
+}
+
+/* Footer Section */
+.section-footer {
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+/* Desktop Layout Adjustments */
+@media (min-width: 768px) {
+    body {
+        padding: 2rem;
+    }
+
+    .section-header {
+        flex-direction: row;
+    }
+    
+    .header-content {
+        border-right: 3px solid var(--border-color);
+        padding: 4rem 3rem;
+    }
+    
+    .contact-block {
+        border-top: none;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 1.5rem;
+    }
+
+    .contact-link {
+        transform: rotate(180deg);
+        word-break: normal;
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        padding: 1.5rem 2rem;
+    }
+
+    .project-item {
+        grid-template-columns: 120px 1fr;
+    }
+
+    .project-number {
+        font-size: 2rem;
+        padding: 3rem 2rem;
+    }
+
+    .project-details {
+        padding: 3rem;
+    }
+
+    .project-title {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-footer {
+        padding: 1.5rem 2rem;
+        text-align: right;
+    }
+}
